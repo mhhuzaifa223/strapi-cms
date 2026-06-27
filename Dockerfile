@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 RUN apk add --no-cache \
     build-base \
@@ -16,7 +16,7 @@ RUN npx create-strapi-app@latest . --quickstart --no-run
 
 RUN npm run build
 
-FROM node:18-alpine
+FROM node:20-alpine
 
 RUN apk add --no-cache vips-dev
 
