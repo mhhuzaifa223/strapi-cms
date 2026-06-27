@@ -14,6 +14,8 @@ WORKDIR /opt
 
 RUN npx create-strapi-app@latest app --quickstart --no-run
 
+RUN ls -la /opt/ && ls -la /opt/app/ || echo "app folder not found"
+
 WORKDIR /opt/app
 
 RUN npm run build
