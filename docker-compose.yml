@@ -1,10 +1,12 @@
 services:
   strapi:
-    image: strapi/strapi:latest
+    image: naskio/strapi
     container_name: strapi-app
     restart: always
     env_file:
       - .env
+    environment:
+      - NODE_ENV=production
     ports:
       - "1337:1337"
     volumes:
