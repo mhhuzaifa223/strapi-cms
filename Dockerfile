@@ -14,20 +14,16 @@ WORKDIR /opt
 
 RUN npx create-strapi-app@latest app --quickstart --no-run
 
-RUN ls -la /opt/ && ls -la /opt/app/ || echo "app folder not found"
+RUN ls -la /opt/
+RUN ls -la /opt/app/ || echo "NO APP FOLDER FOUND"
 
 WORKDIR /opt/app
 
 RUN npm run build
 
 FROM node:20-alpine
-
 RUN apk add --no-cache vips-dev
-
 WORKDIR /opt/app
-
 COPY --from=builder /opt/app ./
-
 EXPOSE 1337
-
 CMD ["npm", "run", "start"]
