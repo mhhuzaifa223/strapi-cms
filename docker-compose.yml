@@ -1,6 +1,8 @@
 services:
   strapi:
-    image: naskio/strapi
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: strapi-app
     restart: always
     env_file:
