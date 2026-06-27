@@ -10,9 +10,11 @@ RUN apk add --no-cache \
     vips-dev \
     git
 
-WORKDIR /opt/app
+WORKDIR /opt
 
-RUN npx create-strapi-app@latest . --quickstart --no-run
+RUN npx create-strapi-app@latest app --quickstart --no-run
+
+WORKDIR /opt/app
 
 RUN npm run build
 
