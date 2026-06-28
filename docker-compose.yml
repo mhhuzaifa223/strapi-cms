@@ -1,7 +1,7 @@
 services:
   strapi:
     build:
-      context: .
+      context: ./strapi-app
       dockerfile: Dockerfile
     container_name: strapi-app
     restart: always
@@ -12,7 +12,7 @@ services:
     ports:
       - "1337:1337"
     volumes:
-      - strapi_data:/srv/app
+      - strapi_data:/opt/app
 
 volumes:
   strapi_data:
